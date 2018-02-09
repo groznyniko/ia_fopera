@@ -13,5 +13,5 @@ def lancer():
             rf.close()
             old_question = question
         infof = open('./1/infos.txt','r')
-        fini = "Score" in infof.read()
+        fini = "Score final" in infof.read()
         infof.close()
