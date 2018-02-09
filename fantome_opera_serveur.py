@@ -123,8 +123,11 @@ class joueur:
 class partie:
     def __init__(self,joueurs):
         for i in [0,1]:
-            f = open("./"+str(i)+"/infos"+".txt","w")
-            f.write("")
+            f = open("./" + str(i) + "/infos.txt","w")
+            f.close()
+            f = open("./" + str(i) + "/questions.txt","w")
+            f.close()
+            f = open("./" + str(i) + "/reponses.txt","w")
             f.close()
         self.joueurs = joueurs
         self.start, self.end, self.num_tour, self.shadow, x = 4, 22, 1, randrange(10), randrange(10)
