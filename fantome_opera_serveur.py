@@ -123,8 +123,11 @@ class joueur:
 class partie:
     def __init__(self,joueurs):
         for i in [0,1]:
-            f = open("./"+str(i)+"/infos"+".txt","w")
-            f.write("")
+            f = open("./" + str(i) + "/infos.txt","w")
+            f.close()
+            f = open("./" + str(i) + "/questions.txt","w")
+            f.close()
+            f = open("./" + str(i) + "/reponses.txt","w")
             f.close()
         self.joueurs = joueurs
         self.start, self.end, self.num_tour, self.shadow, x = 4, 22, 1, randrange(10), randrange(10)
@@ -133,7 +136,7 @@ class partie:
         self.tuiles = [p for p in self.personnages]
         self.cartes = self.tuiles[:]
         self.fantome = self.cartes[randrange(8)]
-        message("!!! Le fantôme est : "+self.fantome.couleur,[self.joueurs[0]])
+        message("!!! Le fantôme est : "+self.fantome.couleur,[self.joueurs[1]])
         self.cartes.remove(self.fantome)
         self.cartes += ['fantome']*3
         
