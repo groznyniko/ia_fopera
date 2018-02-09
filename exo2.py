@@ -1,7 +1,7 @@
 from random import shuffle,randrange
 from time import sleep
 from threading import Thread
-import dummy0, dummy1
+import dummy0_ex2, dummy1
 
 latence = 0.001
 permanents, deux, avant, apres = {'rose'}, {'rouge','gris','bleu'}, {'violet','marron'}, {'noir','blanc'}
@@ -187,7 +187,7 @@ score = []
 joueurs = [joueur(0),joueur(1)]
 nbparties = 100
 for i in range(nbparties):
-    t1,t2 = Thread(target=dummy0.lancer), Thread(target=dummy1.lancer)
+    t1,t2 = Thread(target=dummy0_ex2.lancer), Thread(target=dummy1.lancer)
     t1.start()
     t2.start()
     score.append(partie(joueurs).lancer())
