@@ -133,7 +133,7 @@ class partie:
         self.tuiles = [p for p in self.personnages]
         self.cartes = self.tuiles[:]
         self.fantome = self.cartes[randrange(8)]
-        message("!!! Le fantôme est : "+self.fantome.couleur,[self.joueurs[0]])
+        message("!!! Le fantôme est : "+self.fantome.couleur,[self.joueurs[1]])
         self.cartes.remove(self.fantome)
         self.cartes += ['fantome']*3
         
