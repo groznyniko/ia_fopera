@@ -102,7 +102,7 @@ class joueur:
                     informer("REPONSE INTERPRETEE : "+str(party.shadow))
                 if p.couleur == "bleu":
                     w = demander("Quelle salle bloquer ? (0-9)",self)
-                    x = int(w) if w.isnumeric() and int(w) in range(10) else (party.bloque[0]+1)%10
+                    x = int(w) if w.isnumeric() and int(w) in range(10) else 0
                     w = demander("Quelle sortie ? Chosir parmi : "+str(passages[x]),self)
                     y = int(w) if w.isnumeric() and int(w) in passages[x] else passages[x].copy().pop()
                     informer("REPONSE INTERPRETEE : "+str({x,y}))       
@@ -185,7 +185,7 @@ class partie:
 
 score = []
 joueurs = [joueur(0),joueur(1)]
-nbparties = 100
+nbparties = 20
 for i in range(nbparties):
     t1,t2 = Thread(target=dummy0.lancer), Thread(target=dummy1.lancer)
     t1.start()
