@@ -185,7 +185,7 @@ class partie:
 
 score = []
 joueurs = [joueur(0),joueur(1)]
-nbparties = 1000
+nbparties = 100
 for i in range(nbparties):
     t1,t2 = Thread(target=dummy0_ex2.lancer), Thread(target=dummy1.lancer)
     t1.start()

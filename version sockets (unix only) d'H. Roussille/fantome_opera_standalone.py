@@ -42,7 +42,7 @@ class joueur:
                     draw = party.cartes[0]
                     print(str(draw) + " a été tiré")
                     if draw == "fantome":
-                        party.start += self.numero
+                        party.start += -1 if self.numero == 0 else 1
                     elif self.numero == 0:
                         draw.suspect = False
                     del party.cartes[0]
