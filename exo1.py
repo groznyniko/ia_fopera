@@ -66,7 +66,7 @@ class joueur:
                     draw = party.cartes[0]
                     informer(str(draw) + " a été tiré")
                     if draw == "fantome":
-                        party.start += self.numero
+                        party.start += -1 if self.numero == 0 else 1
                     elif self.numero == 0:
                         draw.suspect = False
                     del party.cartes[0]
@@ -185,7 +185,7 @@ class partie:
 
 score = []
 joueurs = [joueur(0),joueur(1)]
-nbparties = 100
+nbparties = 1000
 for i in range(nbparties):
     t1,t2 = Thread(target=dummy0.lancer), Thread(target=dummy1.lancer)
     t1.start()
