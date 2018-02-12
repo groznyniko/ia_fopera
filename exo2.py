@@ -98,11 +98,11 @@ class joueur:
                     return [q for q in party.personnages if p.position == q.position]
                 if p.couleur == "gris":
                     w = demander("Quelle salle obscurcir ? (0-9)",self)
-                    party.shadow = int(w) if w.isnumeric() and int(w) in range(10) else (party.shadow+1)%10
+                    party.shadow = int(w) if w.isnumeric() and int(w) in range(10) else 0
                     informer("REPONSE INTERPRETEE : "+str(party.shadow))
                 if p.couleur == "bleu":
                     w = demander("Quelle salle bloquer ? (0-9)",self)
-                    x = int(w) if w.isnumeric() and int(w) in range(10) else (party.bloque[0]+1)%10
+                    x = int(w) if w.isnumeric() and int(w) in range(10) else 0
                     w = demander("Quelle sortie ? Chosir parmi : "+str(passages[x]),self)
                     y = int(w) if w.isnumeric() and int(w) in passages[x] else passages[x].copy().pop()
                     informer("REPONSE INTERPRETEE : "+str({x,y}))       

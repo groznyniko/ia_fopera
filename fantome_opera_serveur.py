@@ -98,11 +98,11 @@ class joueur:
                     return [q for q in party.personnages if p.position == q.position]
                 if p.couleur == "gris":
                     w = demander("Quelle salle obscurcir ? (0-9)",self)
-                    party.shadow = int(w) if w.isnumeric() and int(w) in range(10) else (party.shadow+1)%10
+                    party.shadow = int(w) if w.isnumeric() and int(w) in range(10) else (0
                     informer("REPONSE INTERPRETEE : "+str(party.shadow))
                 if p.couleur == "bleu":
                     w = demander("Quelle salle bloquer ? (0-9)",self)
-                    x = int(w) if w.isnumeric() and int(w) in range(10) else (party.bloque[0]+1)%10
+                    x = int(w) if w.isnumeric() and int(w) in range(10) else 0
                     w = demander("Quelle sortie ? Chosir parmi : "+str(passages[x]),self)
                     y = int(w) if w.isnumeric() and int(w) in passages[x] else passages[x].copy().pop()
                     informer("REPONSE INTERPRETEE : "+str({x,y}))       
@@ -123,8 +123,11 @@ class joueur:
 class partie:
     def __init__(self,joueurs):
         for i in [0,1]:
-            f = open("./"+str(i)+"/infos"+".txt","w")
-            f.write("")
+            f = open("./" + str(i) + "/infos.txt","w")
+            f.close()
+            f = open("./" + str(i) + "/questions.txt","w")
+            f.close()
+            f = open("./" + str(i) + "/reponses.txt","w")
             f.close()
         self.joueurs = joueurs
         self.start, self.end, self.num_tour, self.shadow, x = 4, 22, 1, randrange(10), randrange(10)
@@ -133,7 +136,7 @@ class partie:
         self.tuiles = [p for p in self.personnages]
         self.cartes = self.tuiles[:]
         self.fantome = self.cartes[randrange(8)]
-        message("!!! Le fantôme est : "+self.fantome.couleur,[self.joueurs[0]])
+        message("!!! Le fantôme est : "+self.fantome.couleur,[self.joueurs[1]])
         self.cartes.remove(self.fantome)
         self.cartes += ['fantome']*3
         
