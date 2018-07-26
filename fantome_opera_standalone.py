@@ -69,7 +69,7 @@ class joueur:
                     party.shadow = int(w) if w.isnumeric() and int(w) in range(10) else (party.shadow+1)%10
                 if p.couleur == "bleu":
                     w = input(input("Quelle salle bloquer ? (0-9)"))
-                    x = int(w) if w.isnumeric() and int(w) in range(10) else (party.bloque[0]+1)%10
+                    x = int(w) if w.isnumeric() and int(w) in range(10) else 0
                     w = input("Quelle sortie ? Chosir parmi : "+str(passages[x]))
                     y = int(w) if w.isnumeric() and int(w) in passages[x] else passages[x].copy().pop()
                     party.bloque = {x,y}
