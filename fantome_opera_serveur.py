@@ -25,9 +25,11 @@ def demander(q,j):
     f.close()
     sleep(latence)
     f = open("./"+str(j.numero)+"/reponses"+".txt","r")
-    r = f.read()
+    # r = f.read()
+    r = f.readline()
     f.close()
-    informer("REPONSE DONNEE : "+r)
+    # informer("REPONSE DONNEE : "+r)
+    informer("REPONSE DONNEE : "+str(r))
     return r
 
 class personnage:
